@@ -4,7 +4,7 @@
 
 body {
     font-family: 'EB Garamond', serif;
-    overflow: hidden;
+    overflow-y: auto; /* Changed from hidden to auto to enable vertical scrolling */
     cursor: crosshair;
     background-color: #000;
     color: white;
@@ -115,31 +115,25 @@ body {
     color: white;
 }
 
-.tag-button[data-tag="writing"] { background-color: #D295BF; color: #333; }
-.tag-button[data-tag="update"] { background-color: #EDEBA0; color: #333; }
-.tag-button[data-tag="projects"] { background-color: #80CED7; color: #333; }
-.tag-button[data-tag="thoughts"] { background-color: #FEC196; color: #333; }
-.tag-button[data-tag="fun"] { background-color: #D295BF; color: #333; }
+.tag-button.active {
+    filter: brightness(0.8);
+    font-weight: bold;
+    border-color: white;
+}
+
+.tag-button:not(:last-child) {
+    margin-right: 0.5rem;
+}
 
 .card .tag-button {
     font-size: 0.6rem;
     padding: 0.15rem 0.5rem;
 }
 
-#tagFilters .tag-button.active {
-    filter: brightness(0.8);
-    font-weight: bold;
-    border-color: white;
-}
-
 #tagFilters .tag-button.active:hover {
     background-color: unset;
     color: unset;
     filter: brightness(0.7);
-}
-
-.tag-button:not(:last-child) {
-    margin-right: 0.5rem;
 }
 
 .card h2 {
