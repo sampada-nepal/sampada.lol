@@ -9,6 +9,8 @@ body {
     background-color: #000;
     color: white;
     overflow-x: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .my-custom-button:hover {
