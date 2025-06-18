@@ -13,6 +13,21 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: #4A90E2; /* A default link blue/cyan color that stands out */
+    text-decoration: underline; /* Ensures it looks like a link */
+    transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out; /* Smooth transition for hover effects */
+}
+
+a:hover {
+    color: #6CCFF6; /* Lighter blue on hover */
+    text-decoration: none; /* Removes underline on hover for a subtle effect */
+}
+
+a:visited {
+    color: #800080; /* Optional: A different color for visited links */
+}
+
 .my-custom-button:hover {
     background-color: rgba(251, 191, 36, 0.2);
 }
