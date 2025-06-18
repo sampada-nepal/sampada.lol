@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <!-- New: Link for the simpler pixel font 'DotGothic16' -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="p-4">
+    <div id="star-container" class="star-container"></div>
+
+    <h1 id="mainTitle" class="text-4xl font-extrabold text-center mb-8 relative z-10">posts</h1>
+
+    <div id="tagFilters" class="text-center mb-8 relative z-10">
+        <button class="tag-button active" data-tag="all">All</button>
+        <button class="tag-button" data-tag="writing">Writing</button>
+        <button class="tag-button" data-tag="update">Update</button>
+        <button class="tag-button" data-tag="projects">Projects</button>
+        <button class="tag-button" data-tag="thoughts">Thoughts</button>
+        <button class="tag-button" data-tag="fun">Fun</button>
+    </div>
+
+    <div id="postsGrid" class="masonry-grid">
+        <div class="card" data-tags="writing,update" data-title="First Adventure!" data-content="Just landed on a new planet! The salmon-pink skies are breathtaking. Details coming soon about the initial planetary reconnaissance and the unique atmospheric conditions we've observed. We're setting up a temporary base camp now to analyze the local flora and fauna." data-date="June 13, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">intro</h2>
+                <p class="text-gray-300 text-sm">I’m Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). <br><br>This summer, I’ll be in San Francisco working on a personal robotics project. If that sounds interesting or if you’d like to meet, please reach out to me at sampada@mit.edu. </p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">may 30, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="projects" data-title="Pixel Art Progress" data-content="Working on some new pixel art pieces. Trying out a more vibrant color palette this time around. Excited to share the progress and the techniques I'm experimenting with to get that authentic retro feel. Focus is on environmental details and character sprites for an upcoming game." data-date="June 12, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">Pixel Art Progress</h2>
+                <p class="text-gray-300 text-sm">Working on some new pixel art pieces. Trying out a more vibrant color palette this time around. Excited to share the progress and the techniques I'm experimenting with to get that authentic retro feel. Focus is on environmental details and character sprites for an upcoming game.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="projects">projects</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">June 12, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="thoughts,projects" data-title="Learning New Tech" data-content="Diving deep into advanced JavaScript animations. The starburst effect was just the beginning! Exploring ways to optimize performance and create more complex interactive elements for web experiences. Considering integrating WebGL for true 3D effects soon." data-date="June 11, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">Learning New Tech</h2>
+                <p class="text-gray-300 text-sm">Diving deep into advanced JavaScript animations. The starburst effect was just the beginning! Exploring ways to optimize performance and create more complex interactive elements for web experiences. Considering integrating WebGL for true 3D effects soon.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="thoughts">thoughts</span>
+                    <span class="tag-button !cursor-default" data-tag="projects">projects</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">June 11, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="update,writing" data-title="Space Exploration Log #3" data-content="Encountered fascinating cosmic dust clouds today. They twinkle with an ethereal glow, reminiscent of ancient nebula. We ran some spectral analyses and found trace elements not yet cataloged. It's truly a marvel to witness these cosmic phenomena up close." data-date="June 10, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">Space Exploration Log #3</h2>
+                <p class="text-gray-300 text-sm">Encountered fascinating cosmic dust clouds today. They twinkle with an ethereal glow, reminiscent of ancient nebula. We ran some spectral analyses and found trace elements not yet cataloged. It's truly a marvel to witness these cosmic phenomena up close.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="update">update</span>
+                    <span class="tag-button !cursor-default" data-tag="writing">writing</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">June 10, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="projects,thoughts" data-title="New Project Idea" data-content="Brainstorming a web app that simulates galaxy formation. Thinking of using `three.js`! The challenge will be rendering billions of stars smoothly and creating realistic gravitational interactions. It's a massive undertaking but potentially very rewarding." data-date="June 9, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">New Project Idea</h2>
+                <p class="text-gray-300 text-sm">Brainstorming a web app that simulates galaxy formation. Thinking of using `three.js`! The challenge will be rendering billions of stars smoothly and creating realistic gravitational interactions. It's a massive undertaking but potentially very rewarding.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="projects">projects</span>
+                    <span class="tag-button !cursor-default" data-tag="thoughts">thoughts</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">June 9, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="thoughts" data-title="Music in the Void" data-content="Listening to some lo-fi beats while drifting through the cosmos. Perfect for coding and philosophical ponderings about the vastness of space. The silence of the void is best accompanied by a good playlist." data-date="June 8, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">Music in the Void</h2>
+                <p class="text-gray-300 text-sm">Listening to some lo-fi beats while drifting through the cosmos. Perfect for coding and philosophical ponderings about the vastness of space. The silence of the void is best accompanied by a good playlist.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="thoughts">thoughts</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">June 8, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="update" data-title="Quick Check-in" data-content="All systems nominal. Just a brief update to say everything's running smoothly!" data-date="June 7, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">Quick Check-in</h2>
+                <p class="text-gray-300 text-sm">All systems nominal. Just a brief update to say everything's running smoothly!</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="update">update</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">June 7, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="writing" data-title="New Story Draft" data-content="Started outlining a new sci-fi short story. It involves a time-traveling space pirate and a galactic treasure hunt. The plot twists are going to be wild!" data-date="June 6, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">New Story Draft</h2>
+                <p class="text-gray-300 text-sm">Started outlining a new sci-fi short story. It involves a time-traveling space pirate and a galactic treasure hunt. The plot twists are going to be wild!</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="writing">writing</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">June 6, 2025</p>
+            </div>
+        </div>
+
+        <div class="card" data-tags="update" data-title="San Francisco Summer" data-content="I'm moving to SF this summer, where I'll be working on a few personal robot projects. The reason for this is that I’d always wished I’d taken a gap year before college. I wanted to have some time to work on my own project ideas, with no curriculum to take up my autonomy. But if not a gap year, then I figured freshman summer would be a perfect time to just to mess around and learn by doing. <br><br> Alongside my projects, my goal for summer is also to self-learn a bit of deep learning and machine learning. I'm excited to apply what I learn to my robot projects. <br><br> More to come soon. " data-date="May 30, 2025">
+            <div class="card-content">
+                <h2 class="text-2xl font-bold mb-2">San Francisco Summer</h2>
+                <p class="text-gray-300 text-sm">I'm moving to SF this summer, where I'll be working on a few personal robot projects. I'm taking this time to work on my own project ideas, with nothing else taking up my time. I'm excited to just mess around and learn by doing. <br><br> Alongside my projects, my goal for summer is also to self-learn a bit of deep learning and machine learning. I'm excited to apply what I learn to my robot projects. <br><br> More to come soon. </p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="update">update</span>
+                </div>
+                <p class="text-xs text-gray-500 card-date-display">May 30, 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail View for a single post -->
+    <div id="postDetailView" class="post-detail-view">
+        <h2 id="detailTitle" class="text-4xl font-bold mb-4 mt-4"></h2>
+        <div id="detailContent" class="text-gray-300 text-lg mb-6 detail-content"></div>
+        <div id="detailTags" class="flex flex-wrap gap-1 mb-2"></div>
+        <!-- Updated: New div to align back button and date -->
+        <div class="post-detail-footer">
+            <button id="backToPostsButton" class="back-button-text">&lt; back to all posts</button>
+            <p id="detailDate" class="text-sm text-gray-500"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const starContainer = document.getElementById('star-container');
+            const numberOfStars = 150;
+            const starSize = 2;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('span');
+                star.classList.add('star');
+
+                star.style.width = `${starSize}px`;
+                star.style.height = `${starSize}px`;
+
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                star.style.left = `${x}vw`;
+                star.style.top = `${y}vh`;
+
+                const duration = Math.random() * 2 + 1;
+                const delay = Math.random() * 2;
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `${delay}s`;
+
+                starContainer.appendChild(star);
+            }
+
+            const tagFiltersDiv = document.getElementById('tagFilters');
+            const postsGrid = document.getElementById('postsGrid');
+            const allPostCards = Array.from(postsGrid.querySelectorAll('.card'));
+
+            const postDetailView = document.getElementById('postDetailView');
+            const detailTitle = document.getElementById('detailTitle');
+            const detailContent = document.getElementById('detailContent');
+            const detailTags = document.getElementById('detailTags');
+            const detailDate = document.getElementById('detailDate');
+            const backToPostsButton = document.getElementById('backToPostsButton');
+
+            // NEW: Function to make dates lowercase on the main grid
+            function lowerCaseCardDates() {
+                document.querySelectorAll('.card .card-date-display').forEach(dateElement => {
+                    dateElement.textContent = dateElement.textContent.toLowerCase();
+                });
+            }
+
+            function showPostsGrid() {
+                postsGrid.style.display = 'block';
+                tagFiltersDiv.style.display = 'block';
+                document.getElementById('mainTitle').style.display = 'block';
+                postDetailView.style.display = 'none';
+            }
+
+            function showPostDetail(card) {
+                postsGrid.style.display = 'none';
+                tagFiltersDiv.style.display = 'none';
+                document.getElementById('mainTitle').style.display = 'none';
+
+                detailTitle.textContent = card.dataset.title;
+                detailContent.innerHTML = card.dataset.content;
+                
+                detailTags.innerHTML = '';
+                const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+                tags.forEach(tag => {
+                    const tagSpan = document.createElement('span');
+                    // Removed Tailwind padding/text size classes from here as well
+                    tagSpan.classList.add('tag-button', '!cursor-default');
+                    tagSpan.setAttribute('data-tag', tag);
+                    tagSpan.textContent = tag;
+                    detailTags.appendChild(tagSpan);
+                });
+
+                // Set date and convert to lowercase
+                detailDate.textContent = card.dataset.date.toLowerCase();
+                postDetailView.style.display = 'flex';
+                window.scrollTo(0, 0);
+            }
+
+            function applyFilter(selectedTag) {
+                allPostCards.forEach(card => {
+                    const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+                    if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            tagFiltersDiv.querySelectorAll('.tag-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const selectedTag = button.dataset.tag;
+
+                    // Handle visibility of filter buttons
+                    tagFiltersDiv.querySelectorAll('.tag-button').forEach(btn => {
+                        if (selectedTag === 'all') {
+                            btn.style.display = 'inline-block'; // Show all buttons if 'All' is selected
+                        } else {
+                            if (btn.dataset.tag === selectedTag || btn.dataset.tag === 'all') {
+                                btn.style.display = 'inline-block'; // Show selected and 'All'
+                            } else {
+                                btn.style.display = 'none'; // Hide others
+                            }
+                        }
+                        btn.classList.remove('active'); // Remove active from all initially
+                    });
+
+                    button.classList.add('active'); // Add active to the clicked button
+                    applyFilter(selectedTag); // Apply post filtering
+                });
+            });
+
+            postsGrid.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', () => {
+                    showPostDetail(card);
+                });
+            });
+
+            backToPostsButton.addEventListener('click', () => {
+                showPostsGrid();
+                // When going back, reset filter to 'all' and show all filter buttons
+                const allButton = tagFiltersDiv.querySelector('[data-tag="all"]');
+                if (allButton) {
+                    allButton.click();
+                }
+            });
+
+            // This block handles initial filtering based on URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialTag = urlParams.get('tag');
+
+            // Find the button corresponding to the initial tag from URL or default to 'all'
+            const initialFilterButton = initialTag ?
+                                      tagFiltersDiv.querySelector(`.tag-button[data-tag="${initialTag}"]`) :
+                                      tagFiltersDiv.querySelector('[data-tag="all"]');
+
+            if (initialFilterButton) {
+                initialFilterButton.click(); // Programmatically click to apply filter and visibility
+            } else {
+                tagFiltersDiv.querySelector('[data-tag="all"]').click(); // Fallback if URL tag invalid
+            }
+            showPostsGrid(); // Ensure the grid is shown on load
+
+            // NEW: Call the function to lowercase dates on the main grid after everything is set up
+            lowerCaseCardDates();
+        });
+    </script>
+</body>
+</html>
