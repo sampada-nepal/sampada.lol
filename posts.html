@@ -25,20 +25,23 @@
     </div>
 
     <div id="postsGrid" class="masonry-grid">
-        <div class="card">
+        <div class="card" data-tags="writing,update" data-title="Intro" data-content="I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, please reach out to me at sampada@mit.edu." data-date="May 30, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">intro</h2>
                 <p class="text-gray-300 text-sm">I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). <br></p>
                 <img src="me.png" alt="sampada nepal" class="w-full mt-4 rounded-lg shadow-lg"> <br>
-                <p class="text-gray-300 text-sm">This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, please reach out to me at sampada@mit.edu.</p>
+                <p class="text-gray-300 text-sm">This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, please reach out to me at <a href="mailto:sampada@mit.edu" class="text-blue-400 hover:underline">sampada@mit.edu</a>.</p>
             </div>
             <div class="mt-4 flex justify-between items-center">
-                <div class="flex flex-wrap gap-1"></div>
+                <div class="flex flex-wrap gap-1">
+                    <span class="tag-button !cursor-default" data-tag="writing">writing</span>
+                    <span class="tag-button !cursor-default" data-tag="update">update</span>
+                </div>
                 <p class="text-xs text-gray-500 card-date-display">may 30, 2025</p>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="projects" data-title="Pixel Art Progress" data-content="Working on some new pixel art pieces. Trying out a more vibrant color palette this time around. Excited to share the progress and the techniques I'm experimenting with to get that authentic retro feel. Focus is on environmental details and character sprites for an upcoming game." data-date="June 12, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">Pixel Art Progress</h2>
                 <p class="text-gray-300 text-sm">Working on some new pixel art pieces. Trying out a more vibrant color palette this time around. Excited to share the progress and the techniques I'm experimenting with to get that authentic retro feel. Focus is on environmental details and character sprites for an upcoming game.</p>
@@ -51,7 +54,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="thoughts,projects" data-title="Learning New Tech" data-content="Diving deep into advanced JavaScript animations. The starburst effect was just the beginning! Exploring ways to optimize performance and create more complex interactive elements for web experiences. Considering integrating WebGL for true 3D effects soon." data-date="June 11, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">Learning New Tech</h2>
                 <p class="text-gray-300 text-sm">Diving deep into advanced JavaScript animations. The starburst effect was just the beginning! Exploring ways to optimize performance and create more complex interactive elements for web experiences. Considering integrating WebGL for true 3D effects soon.</p>
@@ -65,7 +68,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="update,writing" data-title="Space Exploration Log #3" data-content="Encountered fascinating cosmic dust clouds today. They twinkle with an ethereal glow, reminiscent of ancient nebula. We ran some spectral analyses and found trace elements not yet cataloged. It's truly a marvel to witness these cosmic phenomena up close." data-date="June 10, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">Space Exploration Log #3</h2>
                 <p class="text-gray-300 text-sm">Encountered fascinating cosmic dust clouds today. They twinkle with an ethereal glow, reminiscent of ancient nebula. We ran some spectral analyses and found trace elements not yet cataloged. It's truly a marvel to witness these cosmic phenomena up close.</p>
@@ -79,7 +82,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="projects,thoughts" data-title="New Project Idea" data-content="Brainstorming a web app that simulates galaxy formation. Thinking of using `three.js`! The challenge will be rendering billions of stars smoothly and creating realistic gravitational interactions. It's a massive undertaking but potentially very rewarding." data-date="June 9, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">New Project Idea</h2>
                 <p class="text-gray-300 text-sm">Brainstorming a web app that simulates galaxy formation. Thinking of using `three.js`! The challenge will be rendering billions of stars smoothly and creating realistic gravitational interactions. It's a massive undertaking but potentially very rewarding.</p>
@@ -93,7 +96,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="thoughts" data-title="Music in the Void" data-content="Listening to some lo-fi beats while drifting through the cosmos. Perfect for coding and philosophical ponderings about the vastness of space. The silence of the void is best accompanied by a good playlist." data-date="June 8, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">Music in the Void</h2>
                 <p class="text-gray-300 text-sm">Listening to some lo-fi beats while drifting through the cosmos. Perfect for coding and philosophical ponderings about the vastness of space. The silence of the void is best accompanied by a good playlist.</p>
@@ -106,25 +109,23 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="update" data-title="Quick Check-in" data-content="All systems nominal. Just a brief update to say everything's running smoothly!" data-date="June 7, 2025">
             <div class="card-content">
-                <h2 class="text-2xl font-bold mb-2">baby’s first hackathon</h2>
-                <p class="text-gray-300 text-sm">I competed in my first <a href="https://github.com/samyok/cine.stream">hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p>
-                <img src="cinestream.png" alt="pixel graphic" class="w-full mt-4 rounded-lg shadow-lg"><br>
-                <p class="text-gray-20 text-sm">winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>
+                <h2 class="text-2xl font-bold mb-2">Quick Check-in</h2>
+                <p class="text-gray-300 text-sm">All systems nominal. Just a brief update to say everything's running smoothly!</p>
             </div>
             <div class="mt-4 flex justify-between items-center">
                 <div class="flex flex-wrap gap-1">
-                    <span class="tag-button !cursor-default" data-tag="projects">projects</span>
+                    <span class="tag-button !cursor-default" data-tag="update">update</span>
                 </div>
-                <p class="text-xs text-gray-500 card-date-display">april 16, 2021</p>
+                <p class="text-xs text-gray-500 card-date-display">June 7, 2025</p>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-tags="update, projects" data-title="Maslab" data-content="I just completed Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it makes me want to experiment more on my own. I did a lot of hardware design, CAD, and prototyping as well; this rack and pinion design was mounted to a DC motor to pick up multicolored blocks." data-date="Jan 30, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">maslab</h2>
-                <p class="text-gray-300 text-sm">I just completed Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it made me want to experiment more on my own.<br></p>
+                <p class="text-gray-300 text-sm">I just completed Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it makes me want to experiment more on my own.<br><br></p>
                 <img src="maslabpinion.gif" alt="rack and pinion design" class="w-full mt-4 rounded-lg shadow-lg"><br>
                 <p class="text-gray-300 text-sm">I did a lot of hardware design, CAD, and prototyping as well; this rack and pinion design was mounted to a DC motor to pick up multicolored blocks.</p>
             </div>
@@ -136,16 +137,8 @@
                 <p class="text-xs text-gray-500 card-date-display">jan 30, 2025</p>
             </div>
         </div>
-
-    <div id="postDetailView" class="post-detail-view">
-        <h2 id="detailTitle" class="text-4xl font-bold mb-4 mt-4"></h2>
-        <div id="detailContent" class="text-gray-300 text-lg mb-6 detail-content"></div>
-        <div id="detailTags" class="flex flex-wrap gap-1 mb-2"></div>
-        <div class="post-detail-footer">
-            <button id="backToPostsButton" class="back-button-text">&lt; back to all posts</button>
-            <p id="detailDate" class="text-sm text-gray-500"></p>
-        </div>
     </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -177,13 +170,6 @@
             const postsGrid = document.getElementById('postsGrid');
             const allPostCards = Array.from(postsGrid.querySelectorAll('.card'));
 
-            const postDetailView = document.getElementById('postDetailView');
-            const detailTitle = document.getElementById('detailTitle');
-            const detailContent = document.getElementById('detailContent');
-            const detailTags = document.getElementById('detailTags');
-            const detailDate = document.getElementById('detailDate');
-            const backToPostsButton = document.getElementById('backToPostsButton');
-
             function lowerCaseCardDates() {
                 document.querySelectorAll('.card .card-date-display').forEach(dateElement => {
                     dateElement.textContent = dateElement.textContent.toLowerCase();
@@ -194,30 +180,6 @@
                 postsGrid.style.display = 'block';
                 tagFiltersDiv.style.display = 'block';
                 document.getElementById('mainTitle').style.display = 'block';
-                postDetailView.style.display = 'none';
-            }
-
-            function showPostDetail(card) {
-                postsGrid.style.display = 'none';
-                tagFiltersDiv.style.display = 'none';
-                document.getElementById('mainTitle').style.display = 'none';
-
-                detailTitle.textContent = card.dataset.title;
-                detailContent.innerHTML = card.dataset.content;
-                
-                detailTags.innerHTML = '';
-                const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
-                tags.forEach(tag => {
-                    const tagSpan = document.createElement('span');
-                    tagSpan.classList.add('tag-button', '!cursor-default');
-                    tagSpan.setAttribute('data-tag', tag);
-                    tagSpan.textContent = tag;
-                    detailTags.appendChild(tagSpan);
-                });
-
-                detailDate.textContent = card.dataset.date.toLowerCase();
-                postDetailView.style.display = 'flex';
-                window.scrollTo(0, 0);
             }
 
             function applyFilter(selectedTag) {
@@ -251,20 +213,6 @@
                     button.classList.add('active');
                     applyFilter(selectedTag);
                 });
-            });
-
-            postsGrid.querySelectorAll('.card').forEach(card => {
-                card.addEventListener('click', () => {
-                    showPostDetail(card);
-                });
-            });
-
-            backToPostsButton.addEventListener('click', () => {
-                showPostsGrid();
-                const allButton = tagFiltersDiv.querySelector('[data-tag="all"]');
-                if (allButton) {
-                    allButton.click();
-                }
             });
 
             const urlParams = new URLSearchParams(window.location.search);
