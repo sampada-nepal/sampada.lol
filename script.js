@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-maslab',
             title: 'maslab',
-            fullContent: `<p class='text-gray-300 text-sm'>This January I participated in Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it made me want to experiment more on my own.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>I did a lot of hardware design, CAD, and prototyping as well; this rack and pinion design was mounted to a DC motor to pick up multicolored blocks.</p>`,
+            fullContent: `<p class='text-gray-300 text-sm'>rack and pinion design for picking up blocks<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>this was mounted to a DC motor for an autonomous robot to pick up multicolored blocks.</p>`,
             date: 'jan 30, 2025',
             tags: ['mech-e']
         },
