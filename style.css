@@ -130,11 +130,11 @@ a:visited {
     color: white;
 }
 
-.tag-button[data-tag="main"] { background-color: #D295BF; color: #333; }
+.tag-button[data-tag="writing"] { background-color: #D295BF; color: #333; }
 .tag-button[data-tag="update"] { background-color: #EDEBA0; color: #333; }
 .tag-button[data-tag="projects"] { background-color: #80CED7; color: #333; }
-.tag-button[data-tag="fun"] { background-color: #FEC196; color: #333; }
-.tag-button[data-tag="personal"] { background-color: #D295BF; color: #333; }
+.tag-button[data-tag="thoughts"] { background-color: #FEC196; color: #333; }
+.tag-button[data-tag="fun"] { background-color: #D295BF; color: #333; }
 
 .card .tag-button {
     font-size: 0.6rem;
@@ -175,6 +175,12 @@ a:visited {
     letter-spacing: 0.08em;
 }
 
+/* Specific styling for the detail content's paragraph text */
+#detailContent p {
+    font-size: 1.1rem; /* Slightly larger font size for detailed post content */
+    line-height: 1.6; /* Improved readability with more line height */
+}
+
 @media (max-width: 768px) {
     .masonry-grid {
         column-count: 2;
@@ -184,6 +190,9 @@ a:visited {
     }
     #detailTitle {
         font-size: 2rem;
+    }
+    #detailContent p {
+        font-size: 1rem; /* Adjust for smaller screens */
     }
 }
 
@@ -196,6 +205,9 @@ a:visited {
     }
     #detailTitle {
         font-size: 1.8rem;
+    }
+    #detailContent p {
+        font-size: 0.95rem; /* Further adjustment for very small screens */
     }
 }
 
@@ -225,7 +237,7 @@ a:visited {
     overflow-y: auto;
     display: none;
     flex-direction: column;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .post-detail-view img {
