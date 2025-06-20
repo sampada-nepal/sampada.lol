@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showPostsGrid() {
-        postsGrid.style.display = 'grid';
+        postsGrid.style.display = 'block';
         tagFiltersDiv.style.display = 'block';
         document.getElementById('mainTitle').style.display = 'block';
         postDetailView.style.display = 'none';
