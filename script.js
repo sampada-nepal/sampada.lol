@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-beerbot',
             title: 'beerbot in process',
-            fullContent: `<p class='text-gray-300 text-sm'>a CAD model for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            fullContent: `<p class='text-gray-300 text-sm'>a cad model (in Fusion) for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 10, 2022',
             tags: ['mech-e']
         },
