@@ -13,9 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allPostCards = [];
     
-    // Define missing variables
     const numberOfStars = 100;
     const starSize = 2;
+
+    let lastSelectedTag = 'main';
 
     const postsData = [
         {
@@ -209,7 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyFilter(selectedTag) {
         allPostCards.forEach(card => {
             const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
-            if (selectedTag === 'main' || cardTags.includes(selectedTag)) {
+            if (selectedTag === 'main') {
+                if (cardTags.includes('update') || cardTags.includes('projects')) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else if (cardTags.includes(selectedTag)) {
                 card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
@@ -220,6 +227,8 @@ document.addEventListener('DOMContentLoaded', () => {
     tagFiltersDiv.querySelectorAll('.tag-button').forEach(button => {
         button.addEventListener('click', () => {
             const selectedTag = button.dataset.tag;
+
+            lastSelectedTag = selectedTag;
 
             tagFiltersDiv.querySelectorAll('.tag-button').forEach(btn => {
                 btn.classList.remove('active');
@@ -232,9 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeDetailViewButton.addEventListener('click', () => {
         showPostsGrid();
-        const mainButton = tagFiltersDiv.querySelector('[data-tag="main"]');
-        if (mainButton) {
-            mainButton.click();
+        const lastButton = tagFiltersDiv.querySelector(`[data-tag="${lastSelectedTag}"]`);
+        if (lastButton) {
+            lastButton.click();
         }
     });
 
