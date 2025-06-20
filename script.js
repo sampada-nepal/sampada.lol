@@ -254,12 +254,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                   tagFiltersDiv.querySelector(`.tag-button[data-tag="${initialTag}"]`) :
                                   tagFiltersDiv.querySelector('[data-tag="main"]');
 
+    initStars(numberOfStars, starSize);
+    generatePostCards();
+
     if (initialFilterButton) {
         initialFilterButton.click();
     } else {
         tagFiltersDiv.querySelector('[data-tag="main"]').click();
     }
-
-    initStars(numberOfStars, starSize);
-    generatePostCards();
 });
