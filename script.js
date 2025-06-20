@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'loading...',
             fullContent: `<p class='text-gray-300 text-sm'>launch screen I made for a game</p><img src='pixilart-drawing.gif' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 10, 2022',
-            tags: ['projects']
+            tags: ['projects', 'personal']
         },
         {
             id: 'post-maslab',
@@ -47,14 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'game dev',
             fullContent: `<p class='text-gray-300 text-sm'>I’ve done a few start-to-finish pixel games in Unity. Through these projects I’ve produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>halloween game objective: collect lots of candy and escape the evil jack-o-lantern</p>`,
             date: 'September 16, 2021',
-            tags: ['projects']
+            tags: ['personal']
         },
         {
             id: 'post-mulberry-lamp',
             title: 'mulberry lamp',
             fullContent: `<p class='text-gray-300 text-sm'>This was a weekend project gift for my dad :)</p><img src='raspilamp.png' alt='stained glass lamp' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'April 23, 2025',
-            tags: ['projects']
+            tags: ['personal']
         },
         {
             id: 'post-hackathon',
