@@ -23,9 +23,61 @@ document.addEventListener('DOMContentLoaded', () => {
         starContainer.appendChild(star);
     }
 
+    const postsData = [
+        {
+            id: 'post-intro',
+            title: 'intro',
+            fullContent: `<p class='text-gray-300 text-sm'>I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). <br></p><img src='me.png' alt='sampada nepal' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'>This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, reach out to me at sampada@mit.edu</p>`,
+            date: 'may 30, 2025',
+            tags: []
+        },
+        {
+            id: 'post-loading',
+            title: 'loading...',
+            fullContent: `<p class='text-gray-300 text-sm'>launch screen I made for a game</p><img src='pixilart-drawing.gif' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            date: 'june 10, 2022',
+            tags: ['projects']
+        },
+        {
+            id: 'post-maslab',
+            title: 'maslab',
+            fullContent: `<p class='text-gray-300 text-sm'>This January I participated in Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it made me want to experiment more on my own.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>I did a lot of hardware design, CAD, and prototyping as well; this rack and pinion design was mounted to a DC motor to pick up multicolored blocks.</p>`,
+            date: 'jan 30, 2025',
+            tags: ['update', 'projects']
+        },
+        {
+            id: 'post-beerbot',
+            title: 'beerbot in process',
+            fullContent: `<p class='text-gray-300 text-sm'>a CAD model for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            date: 'june 10, 2022',
+            tags: ['update', 'projects']
+        },
+        {
+            id: 'post-game-dev',
+            title: 'game dev',
+            fullContent: `<p class='text-gray-300 text-sm'>I’ve done a few start-to-finish pixel games in Unity. Through these projects I’ve produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>halloween game objective: collect lots of candy and escape the evil jack-o-lantern</p>`,
+            date: 'September 16, 2021',
+            tags: ['projects']
+        },
+        {
+            id: 'post-mulberry-lamp',
+            title: 'mulberry lamp',
+            fullContent: `<p class='text-gray-300 text-sm'>This was a weekend project gift for my dad :)</p><img src='raspilamp.png' alt='stained glass lamp' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            date: 'April 23, 2025',
+            tags: ['projects']
+        },
+        {
+            id: 'post-hackathon',
+            title: 'baby’s first hackathon',
+            fullContent: `<p class='text-gray-300 text-sm'>I competed in my first <a href='https://github.com/samyok/cine.stream'>hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p><img src='cinestream.png' alt='pixel graphic' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>`,
+            date: 'april 16, 2021',
+            tags: ['projects']
+        }
+    ];
+
     const tagFiltersDiv = document.getElementById('tagFilters');
     const postsGrid = document.getElementById('postsGrid');
-    const allPostCards = Array.from(postsGrid.querySelectorAll('.card'));
+    let allPostCards = [];
 
     const postDetailView = document.getElementById('postDetailView');
     const postOverlay = document.getElementById('postOverlay');
@@ -47,14 +99,59 @@ document.addEventListener('DOMContentLoaded', () => {
         return truncated + '...';
     }
 
-    function applyTruncationToCards() {
-        allPostCards.forEach(card => {
-            const contentParagraph = card.querySelector('.card-content p.text-gray-300');
-            if (contentParagraph) {
-                const fullText = contentParagraph.textContent;
-                const truncatedText = truncateText(fullText, 150);
-                contentParagraph.textContent = truncatedText;
+    function generatePostCards() {
+        postsGrid.innerHTML = '';
+        postsData.forEach(post => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.id = post.id;
+            card.setAttribute('data-title', post.title);
+            card.setAttribute('data-full-content', post.fullContent);
+            card.setAttribute('data-date', post.date);
+            if (post.tags.length > 0) {
+                card.setAttribute('data-tags', post.tags.join(','));
             }
+
+            let cardContentHtml = `<h2 class="text-2xl font-bold mb-2">${post.title}</h2>`;
+
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = post.fullContent;
+            const paragraphText = tempDiv.querySelector('p.text-gray-300')?.textContent || '';
+            const truncatedText = truncateText(paragraphText, 150);
+
+            cardContentHtml += `<p class="text-gray-300 text-sm">${truncatedText}</p>`;
+
+            const imageSrcMatch = post.fullContent.match(/<img src=["'](.*?)["']/);
+            if (imageSrcMatch && imageSrcMatch[1]) {
+                cardContentHtml += `<img src="${imageSrcMatch[1]}" alt="" class="w-full mt-4 rounded-lg shadow-lg">`;
+            }
+
+            card.innerHTML = `
+                <div class="card-content">
+                    ${cardContentHtml}
+                </div>
+                <div class="mt-4 flex justify-between items-center">
+                    <div class="flex flex-wrap gap-1">
+                        ${post.tags.map(tag => `<span class="tag-button !cursor-default" data-tag="${tag}">${tag}</span>`).join('')}
+                    </div>
+                    <p class="text-xs text-gray-500 card-date-display">${post.date}</p>
+                </div>
+            `;
+            postsGrid.appendChild(card);
+        });
+        allPostCards = Array.from(postsGrid.querySelectorAll('.card'));
+        addCardClickListeners();
+        lowerCaseCardDates();
+    }
+
+    function addCardClickListeners() {
+        postsGrid.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('.tag-button')) {
+                    return;
+                }
+                showPostDetail(card);
+            });
         });
     }
 
@@ -140,15 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    postsGrid.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('click', (event) => {
-            if (event.target.closest('.tag-button')) {
-                return;
-            }
-            showPostDetail(card);
-        });
-    });
-
     closeDetailViewButton.addEventListener('click', () => {
         showPostsGrid();
         const allButton = tagFiltersDiv.querySelector('[data-tag="all"]');
@@ -170,8 +258,5 @@ document.addEventListener('DOMContentLoaded', () => {
         tagFiltersDiv.querySelector('[data-tag="all"]').click();
     }
 
-    applyTruncationToCards();
-    showPostsGrid();
-
-    lowerCaseCardDates();
+    generatePostCards();
 });
