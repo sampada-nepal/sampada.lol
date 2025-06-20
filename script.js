@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'intro',
             fullContent: `<p class='text-gray-300 text-sm'>I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). <br></p><img src='me.png' alt='sampada nepal' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'>This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, reach out to me at sampada@mit.edu</p>`,
             date: 'may 30, 2025',
-            tags: ['main']
+            tags: []
         },
         {
             id: 'post-loading',
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialFilterButton = initialTag ?
         tagFiltersDiv.querySelector(`.tag-button[data-tag="${initialTag}"]`) :
-        tagFiltersDiv.querySelector('[data-tag="main"]');
+                                  tagFiltersDiv.querySelector('[data-tag="main"]');
 
     if (initialFilterButton) {
         initialFilterButton.click();
