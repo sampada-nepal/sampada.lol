@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: []
         },
         {
+            id: 'post-poartable',
+            title: 'poartable',
+            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team!<br></p><img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'> check out the project <a href='https://poartable200.cargo.site/’>website</a>! <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'></p>`,
+            date: 'may 30, 2025',
+            tags: []
+        },
+        {
             id: 'post-loading',
             title: 'loading...',
             fullContent: `<p class='text-gray-300 text-sm'>launch screen I made for a game</p><img src='pixilart-drawing.gif' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
