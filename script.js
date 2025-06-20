@@ -260,8 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialTag = urlParams.get('tag');
 
     const initialFilterButton = initialTag ?
-                                  tagFiltersDiv.querySelector(`.tag-button[data-tag="${initialTag}"]`) :
-                                  tagFiltersDiv.querySelector('[data-tag="main"]');
+        tagFiltersDiv.querySelector(`.tag-button[data-tag="${initialTag}"]`) :
+        tagFiltersDiv.querySelector('[data-tag="main"]');
 
     initStars(numberOfStars, starSize);
     generatePostCards();
