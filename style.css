@@ -171,14 +171,15 @@ a:visited {
 
 #detailTitle {
     font-family: 'DotGothic16', monospace;
-    font-size: 2.5rem;
+    font-size: 2rem;
     letter-spacing: 0.08em;
+    margin-top: 2.5rem;
 }
 
 /* Specific styling for the detail content's paragraph text */
 #detailContent p {
-    font-size: 1.1rem; /* Slightly larger font size for detailed post content */
-    line-height: 1.6; /* Improved readability with more line height */
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
