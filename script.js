@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const starSize = 2;
 
     let lastSelectedTag = 'main';
+    let filterBeforeDetail = 'main';
 
     const postsData = [
         {
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-poartable',
             title: 'poartable',
-            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team! check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'> <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'></p>`,
+            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team. check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <p class='text-gray-300 text-sm'> <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'></p>`,
             date: 'may 22, 2025',
             tags: ['mech-e']
         },
@@ -196,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showPostDetail(cardElement) {
+        filterBeforeDetail = lastSelectedTag;
         setMainVisibility('none', 'blur(3px) brightness(0.5)', 'none');
         document.body.style.overflow = 'hidden';
 
@@ -248,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeDetailViewButton.addEventListener('click', () => {
         showPostsGrid();
-        const lastButton = tagFiltersDiv.querySelector(`[data-tag="${lastSelectedTag}"]`);
+        const lastButton = tagFiltersDiv.querySelector(`[data-tag="${filterBeforeDetail}"]`);
         if (lastButton) {
             lastButton.click();
         }
