@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-game-dev',
             title: 'game dev',
-            fullContent: `<p class='text-gray-300 text-sm'>I've done a few start-to-finish pixel games in Unity. Through these projects I've produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>halloween game objective: collect lots of candy and escape the evil jack-o-lantern</p>`,
+            fullContent: `<p class='text-gray-300 text-sm'>I've done a few start-to-finish pixel games in Unity. Through these projects I've produced a lot of tilemaps, backgrounds, and programming in C#. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'></p>`,
             date: 'September 16, 2021',
             tags: ['CS']
         },
