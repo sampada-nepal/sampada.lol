@@ -38,14 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'maslab',
             fullContent: `<p class='text-gray-300 text-sm'>This January I participated in Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it made me want to experiment more on my own.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>I did a lot of hardware design, CAD, and prototyping as well; this rack and pinion design was mounted to a DC motor to pick up multicolored blocks.</p>`,
             date: 'jan 30, 2025',
-            tags: ['update', 'projects']
+            tags: ['mech-e', 'projects']
         },
         {
             id: 'post-beerbot',
             title: 'beerbot in process',
             fullContent: `<p class='text-gray-300 text-sm'>a CAD model for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 10, 2022',
-            tags: ['update', 'projects']
+            tags: ['mech-e', 'projects']
         },
         {
             id: 'post-game-dev',
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-mulberry-lamp',
             title: 'mulberry lamp',
-            fullContent: `<p class='text-gray-300 text-sm'>This was a weekend project gift for my dad :)</p><img src='raspilamp.png' alt='stained glass lamp' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            fullContent: `<p class='text-gray-300 text-sm'>a weekend project gift for my dad :)</p><img src='raspilamp.png' alt='stained glass lamp' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'April 23, 2025',
             tags: ['personal']
         },
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         allPostCards.forEach(card => {
             const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
             if (selectedTag === 'main') {
-                if (cardTags.includes('update') || cardTags.includes('projects')) {
+                if (card.id === 'post-intro' || cardTags.includes('mech-e') || cardTags.includes('projects')) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
