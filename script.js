@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'post-hackathon',
-            title: 'baby's first hackathon',
+            title: "baby's first hackathon",
             fullContent: `<p class='text-gray-300 text-sm'>I competed in my first <a href='https://github.com/samyok/cine.stream'>hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p><img src='cinestream.png' alt='pixel graphic' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>`,
             date: 'april 16, 2021',
             tags: ['projects']
