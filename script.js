@@ -42,6 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ['CS']
         },
         {
+            id: 'post-webdev',
+            title: 'web dev',
+            fullContent: `<p class='text-gray-300 text-sm'>i made everything on this website!</p><img src='webdevlol.png' alt='screenshot of website cover' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            date: 'june 20, 2025',
+            tags: ['CS']
+        },
+        {
             id: 'post-maslab',
             title: 'rack-and-pinion',
             fullContent: `<p class='text-gray-300 text-sm'>this was mounted to a DC motor for an autonomous robot to pick up multicolored blocks.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'></p>`,
