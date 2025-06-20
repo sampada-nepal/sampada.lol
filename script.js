@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-poartable',
             title: 'poartable',
-            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team!<br></p><img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'> check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'></p>`,
+            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team! check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'><img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'> </p>`,
             date: 'may 22, 2025',
             tags: ['mech-e']
         },
