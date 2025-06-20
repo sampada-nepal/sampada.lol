@@ -13,13 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allPostCards = [];
 
+    // Define missing variables
+    const numberOfStars = 100;
+    const starSize = 2;
+
+    // Track the last selected tag
+    let lastSelectedTag = 'main';
+
     const postsData = [
         {
             id: 'post-intro',
             title: 'intro',
             fullContent: `<p class='text-gray-300 text-sm'>I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). <br></p><img src='me.png' alt='sampada nepal' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'>This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, reach out to me at sampada@mit.edu</p>`,
             date: 'may 30, 2025',
-            tags: []
+            tags: ['main','projects','updates']
         },
         {
             id: 'post-loading',
@@ -217,16 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const selectedTag = button.dataset.tag;
 
+            // Update lastSelectedTag
+            lastSelectedTag = selectedTag;
+
             tagFiltersDiv.querySelectorAll('.tag-button').forEach(btn => {
-                if (selectedTag === 'all') {
-                    btn.style.display = 'inline-block';
-                } else {
-                    if (btn.dataset.tag === selectedTag || btn.dataset.tag === 'all') {
-                        btn.style.display = 'inline-block';
-                    } else {
-                        btn.style.display = 'none';
-                    }
-                }
                 btn.classList.remove('active');
             });
 
@@ -237,9 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeDetailViewButton.addEventListener('click', () => {
         showPostsGrid();
-        const allButton = tagFiltersDiv.querySelector('[data-tag="all"]');
-        if (allButton) {
-            allButton.click();
+        // Restore the last selected tag
+        const lastButton = tagFiltersDiv.querySelector(`[data-tag="${lastSelectedTag}"]`);
+        if (lastButton) {
+            lastButton.click();
         }
     });
 
