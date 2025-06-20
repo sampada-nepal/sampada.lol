@@ -130,11 +130,11 @@ a:visited {
     color: white;
 }
 
-.tag-button[data-tag="writing"] { background-color: #D295BF; color: #333; }
+.tag-button[data-tag="main"] { background-color: #D295BF; color: #333; }
 .tag-button[data-tag="update"] { background-color: #EDEBA0; color: #333; }
 .tag-button[data-tag="projects"] { background-color: #80CED7; color: #333; }
-.tag-button[data-tag="thoughts"] { background-color: #FEC196; color: #333; }
-.tag-button[data-tag="fun"] { background-color: #D295BF; color: #333; }
+.tag-button[data-tag="fun"] { background-color: #FEC196; color: #333; }
+.tag-button[data-tag="personal"] { background-color: #D295BF; color: #333; }
 
 .card .tag-button {
     font-size: 0.6rem;
