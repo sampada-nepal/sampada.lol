@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeDetailViewButton = document.getElementById('closeDetailView');
 
     let allPostCards = [];
+    
+    // Define missing variables
+    const numberOfStars = 100;
+    const starSize = 2;
 
     const postsData = [
         {
@@ -45,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-game-dev',
             title: 'game dev',
-            fullContent: `<p class='text-gray-300 text-sm'>I’ve done a few start-to-finish pixel games in Unity. Through these projects I’ve produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>halloween game objective: collect lots of candy and escape the evil jack-o-lantern</p>`,
+            fullContent: `<p class='text-gray-300 text-sm'>I've done a few start-to-finish pixel games in Unity. Through these projects I've produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>halloween game objective: collect lots of candy and escape the evil jack-o-lantern</p>`,
             date: 'September 16, 2021',
             tags: ['personal']
         },
@@ -58,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'post-hackathon',
-            title: 'baby’s first hackathon',
+            title: 'baby's first hackathon',
             fullContent: `<p class='text-gray-300 text-sm'>I competed in my first <a href='https://github.com/samyok/cine.stream'>hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p><img src='cinestream.png' alt='pixel graphic' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>`,
             date: 'april 16, 2021',
             tags: ['projects']
@@ -205,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyFilter(selectedTag) {
         allPostCards.forEach(card => {
             const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
-            if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
+            if (selectedTag === 'main' || cardTags.includes(selectedTag)) {
                 card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
@@ -218,15 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedTag = button.dataset.tag;
 
             tagFiltersDiv.querySelectorAll('.tag-button').forEach(btn => {
-                if (selectedTag === 'all') {
-                    btn.style.display = 'inline-block';
-                } else {
-                    if (btn.dataset.tag === selectedTag || btn.dataset.tag === 'all') {
-                        btn.style.display = 'inline-block';
-                    } else {
-                        btn.style.display = 'none';
-                    }
-                }
                 btn.classList.remove('active');
             });
 
@@ -237,9 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeDetailViewButton.addEventListener('click', () => {
         showPostsGrid();
-        const allButton = tagFiltersDiv.querySelector('[data-tag="all"]');
-        if (allButton) {
-            allButton.click();
+        const mainButton = tagFiltersDiv.querySelector('[data-tag="main"]');
+        if (mainButton) {
+            mainButton.click();
         }
     });
 
@@ -248,12 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialFilterButton = initialTag ?
                                   tagFiltersDiv.querySelector(`.tag-button[data-tag="${initialTag}"]`) :
-                                  tagFiltersDiv.querySelector('[data-tag="all"]');
+                                  tagFiltersDiv.querySelector('[data-tag="main"]');
 
     if (initialFilterButton) {
         initialFilterButton.click();
     } else {
-        tagFiltersDiv.querySelector('[data-tag="all"]').click();
+        tagFiltersDiv.querySelector('[data-tag="main"]').click();
     }
 
     initStars(numberOfStars, starSize);
