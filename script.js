@@ -31,28 +31,28 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'loading...',
             fullContent: `<p class='text-gray-300 text-sm'>launch screen I made for a game</p><img src='pixilart-drawing.gif' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 10, 2022',
-            tags: ['projects', 'personal']
+            tags: ['CS']
         },
         {
             id: 'post-maslab',
             title: 'maslab',
             fullContent: `<p class='text-gray-300 text-sm'>This January I participated in Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it made me want to experiment more on my own.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>I did a lot of hardware design, CAD, and prototyping as well; this rack and pinion design was mounted to a DC motor to pick up multicolored blocks.</p>`,
             date: 'jan 30, 2025',
-            tags: ['mech-e', 'projects']
+            tags: ['mech-e']
         },
         {
             id: 'post-beerbot',
             title: 'beerbot in process',
             fullContent: `<p class='text-gray-300 text-sm'>a CAD model for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 10, 2022',
-            tags: ['mech-e', 'projects']
+            tags: ['mech-e']
         },
         {
             id: 'post-game-dev',
             title: 'game dev',
             fullContent: `<p class='text-gray-300 text-sm'>I've done a few start-to-finish pixel games in Unity. Through these projects I've produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>halloween game objective: collect lots of candy and escape the evil jack-o-lantern</p>`,
             date: 'September 16, 2021',
-            tags: ['personal']
+            tags: ['CS']
         },
         {
             id: 'post-mulberry-lamp',
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "baby's first hackathon",
             fullContent: `<p class='text-gray-300 text-sm'>I competed in my first <a href='https://github.com/samyok/cine.stream'>hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p><img src='cinestream.png' alt='pixel graphic' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>`,
             date: 'april 16, 2021',
-            tags: ['projects']
+            tags: ['CS']
         }
     ];
 
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         allPostCards.forEach(card => {
             const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
             if (selectedTag === 'main') {
-                if (card.id === 'post-intro' || cardTags.includes('mech-e') || cardTags.includes('projects')) {
+                if (card.id === 'post-intro' || cardTags.includes('mech-e') || cardTags.includes('CS')) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
