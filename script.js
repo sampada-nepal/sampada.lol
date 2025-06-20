@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'post-poartable',
             title: 'poartable',
-            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team! check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'><img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'> </p>`,
+            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team! check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'> <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'></p>`,
             date: 'may 22, 2025',
             tags: ['mech-e']
         },
@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'post-maslab',
-            title: 'maslab',
-            fullContent: `<p class='text-gray-300 text-sm'>rack and pinion design for picking up blocks<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>this was mounted to a DC motor for an autonomous robot to pick up multicolored blocks.</p>`,
+            title: 'rack-and-pinion',
+            fullContent: `<p class='text-gray-300 text-sm'>this was mounted to a DC motor for an autonomous robot to pick up multicolored blocks.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'></p>`,
             date: 'jan 30, 2025',
             tags: ['mech-e']
         },
