@@ -1,27 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const starContainer = document.getElementById('star-container');
-    const numberOfStars = 150;
-    const starSize = 2;
+    const postsGrid = document.getElementById('postsGrid');
+    const tagFiltersDiv = document.getElementById('tagFilters');
+    const mainTitle = document.getElementById('mainTitle');
+    const postDetailView = document.getElementById('postDetailView');
+    const postOverlay = document.getElementById('postOverlay');
+    const detailTitle = document.getElementById('detailTitle');
+    const detailContent = document.getElementById('detailContent');
+    const detailTags = document.getElementById('detailTags');
+    const detailDate = document.getElementById('detailDate');
+    const closeDetailViewButton = document.getElementById('closeDetailView');
 
-    for (let i = 0; i < numberOfStars; i++) {
-        const star = document.createElement('span');
-        star.classList.add('star');
-
-        star.style.width = `${starSize}px`;
-        star.style.height = `${starSize}px`;
-
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        star.style.left = `${x}vw`;
-        star.style.top = `${y}vh`;
-
-        const duration = Math.random() * 2 + 1;
-        const delay = Math.random() * 2;
-        star.style.animationDuration = `${duration}s`;
-        star.style.animationDelay = `${delay}s`;
-
-        starContainer.appendChild(star);
-    }
+    let allPostCards = [];
 
     const postsData = [
         {
@@ -75,17 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    const tagFiltersDiv = document.getElementById('tagFilters');
-    const postsGrid = document.getElementById('postsGrid');
-    let allPostCards = [];
+    function createStar(size, duration, delay) {
+        const star = document.createElement('span');
+        star.classList.add('star');
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDuration = `${duration}s`;
+        star.style.animationDelay = `${delay}s`;
+        return star;
+    }
 
-    const postDetailView = document.getElementById('postDetailView');
-    const postOverlay = document.getElementById('postOverlay');
-    const detailTitle = document.getElementById('detailTitle');
-    const detailContent = document.getElementById('detailContent');
-    const detailTags = document.getElementById('detailTags');
-    const detailDate = document.getElementById('detailDate');
-    const closeDetailViewButton = document.getElementById('closeDetailView');
+    function initStars(count, size) {
+        for (let i = 0; i < count; i++) {
+            starContainer.appendChild(createStar(size, Math.random() * 2 + 1, Math.random() * 2));
+        }
+    }
 
     function truncateText(text, maxLength) {
         if (text.length <= maxLength) {
@@ -97,6 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
             truncated = truncated.substring(0, lastSpace);
         }
         return truncated + '...';
+    }
+
+    function createTagSpan(tag) {
+        const tagSpan = document.createElement('span');
+        tagSpan.classList.add('tag-button', '!cursor-default');
+        tagSpan.setAttribute('data-tag', tag);
+        tagSpan.textContent = tag;
+        return tagSpan;
     }
 
     function generatePostCards() {
@@ -112,27 +116,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.setAttribute('data-tags', post.tags.join(','));
             }
 
-            let cardContentHtml = `<h2 class="text-2xl font-bold mb-2">${post.title}</h2>`;
-
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = post.fullContent;
-            const paragraphText = tempDiv.querySelector('p.text-gray-300')?.textContent || '';
+            const paragraphElement = tempDiv.querySelector('p.text-gray-300');
+            const paragraphText = paragraphElement ? paragraphElement.textContent : '';
             const truncatedText = truncateText(paragraphText, 150);
 
-            cardContentHtml += `<p class="text-gray-300 text-sm">${truncatedText}</p>`;
+            const imageMatch = post.fullContent.match(/<img src=["'](.*?)["']/);
+            const imageHtml = imageMatch ? `<img src="${imageMatch[1]}" alt="" class="w-full mt-4 rounded-lg shadow-lg">` : '';
 
-            const imageSrcMatch = post.fullContent.match(/<img src=["'](.*?)["']/);
-            if (imageSrcMatch && imageSrcMatch[1]) {
-                cardContentHtml += `<img src="${imageSrcMatch[1]}" alt="" class="w-full mt-4 rounded-lg shadow-lg">`;
-            }
+            const tagSpansHtml = post.tags.map(tag => createTagSpan(tag).outerHTML).join('');
 
             card.innerHTML = `
                 <div class="card-content">
-                    ${cardContentHtml}
+                    <h2 class="text-2xl font-bold mb-2">${post.title}</h2>
+                    <p class="text-gray-300 text-sm">${truncatedText}</p>
+                    ${imageHtml}
                 </div>
                 <div class="mt-4 flex justify-between items-center">
                     <div class="flex flex-wrap gap-1">
-                        ${post.tags.map(tag => `<span class="tag-button !cursor-default" data-tag="${tag}">${tag}</span>`).join('')}
+                        ${tagSpansHtml}
                     </div>
                     <p class="text-xs text-gray-500 card-date-display">${post.date}</p>
                 </div>
@@ -161,28 +164,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function setMainVisibility(displayStyle, filterStyle, pointerEventsStyle) {
+        postsGrid.style.display = displayStyle === 'grid' ? 'grid' : 'block';
+        tagFiltersDiv.style.display = displayStyle;
+        mainTitle.style.display = displayStyle;
+
+        postsGrid.style.pointerEvents = pointerEventsStyle;
+        postsGrid.style.filter = filterStyle;
+        tagFiltersDiv.style.pointerEvents = pointerEventsStyle;
+        tagFiltersDiv.style.filter = filterStyle;
+        mainTitle.style.filter = filterStyle;
+    }
+
     function showPostsGrid() {
-        postsGrid.style.display = 'block';
-        tagFiltersDiv.style.display = 'block';
-        document.getElementById('mainTitle').style.display = 'block';
+        setMainVisibility('block', 'none', 'auto');
         postDetailView.style.display = 'none';
         postOverlay.style.display = 'none';
         document.body.style.overflow = 'auto';
-
-        postsGrid.style.pointerEvents = 'auto';
-        postsGrid.style.filter = 'none';
-        tagFiltersDiv.style.pointerEvents = 'auto';
-        tagFiltersDiv.style.filter = 'none';
-        document.getElementById('mainTitle').style.filter = 'none';
     }
 
     function showPostDetail(cardElement) {
-        postsGrid.style.pointerEvents = 'none';
-        postsGrid.style.filter = 'blur(3px) brightness(0.5)';
-        tagFiltersDiv.style.pointerEvents = 'none';
-        tagFiltersDiv.style.filter = 'blur(3px) brightness(0.5)';
-        document.getElementById('mainTitle').style.filter = 'blur(3px) brightness(0.5)';
-
+        setMainVisibility('none', 'blur(3px) brightness(0.5)', 'none');
         document.body.style.overflow = 'hidden';
 
         detailTitle.textContent = cardElement.dataset.title;
@@ -191,11 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         detailTags.innerHTML = '';
         const tags = cardElement.dataset.tags ? cardElement.dataset.tags.split(',') : [];
         tags.forEach(tag => {
-            const tagSpan = document.createElement('span');
-            tagSpan.classList.add('tag-button', '!cursor-default');
-            tagSpan.setAttribute('data-tag', tag);
-            tagSpan.textContent = tag;
-            detailTags.appendChild(tagSpan);
+            detailTags.appendChild(createTagSpan(tag));
         });
 
         detailDate.textContent = cardElement.dataset.date.toLowerCase();
@@ -258,5 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
         tagFiltersDiv.querySelector('[data-tag="all"]').click();
     }
 
+    initStars(numberOfStars, starSize);
     generatePostCards();
 });
