@@ -8,12 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body class="p-4">
     <div id="star-container" class="star-container"></div>
-
-    <h1 id="mainTitle" class="text-4xl font-extrabold text-center mb-8 relative z-10">posts</h1>
+    <div id="postOverlay" class="post-detail-overlay"></div> <h1 id="mainTitle" class="text-4xl font-extrabold text-center mb-8 relative z-10">posts</h1>
 
     <div id="tagFilters" class="text-center mb-8 relative z-10">
         <button class="tag-button active" data-tag="all">All</button>
@@ -25,7 +23,7 @@
     </div>
 
     <div id="postsGrid" class="masonry-grid">
-        <div class="card">
+        <div class="card" id="post-intro" data-title="Intro" data-content="<p class='text-gray-300 text-sm'>I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). <br></p><img src='me.png' alt='sampada nepal' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'>This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, reach out to me at sampada@mit.edu</p>" data-date="may 30, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">intro</h2>
                 <p class="text-gray-300 text-sm">I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6). <br></p>
@@ -36,9 +34,10 @@
                 <div class="flex flex-wrap gap-1"></div>
                 <p class="text-xs text-gray-500 card-date-display">may 30, 2025</p>
             </div>
+            <a href="#" class="text-blue-400 text-sm mt-2 block see-more-link" data-post-id="post-intro">See more</a>
         </div>
 
-        <div class="card" data-tags="projects">
+        <div class="card" data-tags="projects" id="post-loading" data-title="Loading..." data-content="<p class='text-gray-300 text-sm'>launch screen I made for a game</p><img src='pixilart-drawing.gif' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br>" data-date="june 10, 2022">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">loading...</h2>
                 <p class="text-gray-300 text-sm">launch screen I made for a game</p>
@@ -50,9 +49,10 @@
                 </div>
                 <p class="text-xs text-gray-500 card-date-display">june 10, 2022</p>
             </div>
+            <a href="#" class="text-blue-400 text-sm mt-2 block see-more-link" data-post-id="post-loading">See more</a>
         </div>
 
-        <div class="card" data-tags="update,projects">
+        <div class="card" data-tags="update,projects" id="post-maslab" data-title="MASLAB" data-content="<p class='text-gray-300 text-sm'>This January I participated in Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it made me want to experiment more on my own.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>I did a lot of hardware design, CAD, and prototyping as well; this rack and pinion design was mounted to a DC motor to pick up multicolored blocks.</p>" data-date="jan 30, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">maslab</h2>
                 <p class="text-gray-300 text-sm">This January I participated in Mobile Autonomous Systems Laboratory (MASLAB), a month-long course at MIT designed to give an introduction to autonomous robotics. I learned how to use ROS2 and computer vision for carrying out tasks. It was really enjoyable and it made me want to experiment more on my own.<br></p>
@@ -66,9 +66,10 @@
                 </div>
                 <p class="text-xs text-gray-500 card-date-display">jan 30, 2025</p>
             </div>
+            <a href="#" class="text-blue-400 text-sm mt-2 block see-more-link" data-post-id="post-maslab">See more</a>
         </div>
 
-        <div class="card" data-tags="update,projects">
+        <div class="card" data-tags="update,projects" id="post-beerbot" data-title="Beerbot In Process" data-content="<p class='text-gray-300 text-sm'>a CAD model for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>" data-date="june 10, 2022">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">beerbot in process</h2>
                 <p class="text-gray-300 text-sm">a CAD model for a project coming up..</p>
@@ -81,9 +82,10 @@
                 </div>
                 <p class="text-xs text-gray-500 card-date-display">june 10, 2022</p>
             </div>
+            <a href="#" class="text-blue-400 text-sm mt-2 block see-more-link" data-post-id="post-beerbot">See more</a>
         </div>
 
-        <div class="card" data-tags="projects">
+        <div class="card" data-tags="projects" id="post-game-dev" data-title="Game Dev" data-content="<p class='text-gray-300 text-sm'>I’ve done a few start-to-finish pixel games in Unity. Through these projects I’ve produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>halloween game objective: collect lots of candy and escape the evil jack-o-lantern</p>" data-date="September 16, 2021">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">game dev</h2>
                 <p class="text-gray-300 text-sm">I’ve done a few start-to-finish pixel games in Unity. Through these projects I’ve produced a lot of tilemaps, backgrounds, and programming in C# for video games. <br></p>
@@ -96,12 +98,13 @@
                 </div>
                 <p class="text-xs text-gray-500 card-date-display">September 16, 2021</p>
             </div>
+            <a href="#" class="text-blue-400 text-sm mt-2 block see-more-link" data-post-id="post-game-dev">See more</a>
         </div>
 
-        <div class="card" data-tags="projects">
+        <div class="card" data-tags="projects" id="post-mulberry-lamp" data-title="Mulberry Lamp" data-content="<p class='text-gray-300 text-sm'>This was a weekend project gift for my dad :)</p><img src='raspilamp.png' alt='stained glass lamp' class='w-full mt-4 rounded-lg shadow-lg'><br>" data-date="April 23, 2025">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">mulberry lamp</h2>
-                <p class="text-gray-300 text-sm">This was a weekend project gift for my dad :)<br></p>
+                <p class="text-gray-300 text-sm">This was a weekend project gift for my dad :)</p>
                 <img src="raspilamp.png" alt="stained glass lamp" class="w-full mt-4 rounded-lg shadow-lg"><br>
             </div>
             <div class="mt-4 flex justify-between items-center">
@@ -110,9 +113,10 @@
                 </div>
                 <p class="text-xs text-gray-500 card-date-display">April 23, 2025</p>
             </div>
+            <a href="#" class="text-blue-400 text-sm mt-2 block see-more-link" data-post-id="post-mulberry-lamp">See more</a>
         </div>
 
-        <div class="card" data-tags="projects">
+        <div class="card" data-tags="projects" id="post-hackathon" data-title="Baby’s First Hackathon" data-content="<p class='text-gray-300 text-sm'>I competed in my first <a href='https://github.com/samyok/cine.stream'>hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p><img src='cinestream.png' alt='pixel graphic' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>" data-date="april 16, 2021">
             <div class="card-content">
                 <h2 class="text-2xl font-bold mb-2">baby’s first hackathon</h2>
                 <p class="text-gray-300 text-sm">I competed in my first <a href="https://github.com/samyok/cine.stream">hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p>
@@ -125,8 +129,17 @@
                 </div>
                 <p class="text-xs text-gray-500 card-date-display">april 16, 2021</p>
             </div>
+            <a href="#" class="text-blue-400 text-sm mt-2 block see-more-link" data-post-id="post-hackathon">See more</a>
         </div>
+    </div>
 
+    <div id="postDetailView" class="post-detail-view">
+        <button class="close-button" id="closeDetailView">&times;</button>
+        <h2 id="detailTitle" class="text-3xl font-bold mb-4 text-white"></h2>
+        <div id="detailContent" class="text-gray-300 mb-4"></div>
+        <div class="flex flex-wrap gap-2 mb-4" id="detailTags"></div>
+        <p id="detailDate" class="text-xs text-gray-500"></p>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -157,14 +170,17 @@
             const tagFiltersDiv = document.getElementById('tagFilters');
             const postsGrid = document.getElementById('postsGrid');
             const allPostCards = Array.from(postsGrid.querySelectorAll('.card'));
-/*
+
+            // New elements for detail view
             const postDetailView = document.getElementById('postDetailView');
+            const postOverlay = document.getElementById('postOverlay');
             const detailTitle = document.getElementById('detailTitle');
             const detailContent = document.getElementById('detailContent');
             const detailTags = document.getElementById('detailTags');
             const detailDate = document.getElementById('detailDate');
-            const backToPostsButton = document.getElementById('backToPostsButton');
-*/
+            const closeDetailViewButton = document.getElementById('closeDetailView');
+
+
             function lowerCaseCardDates() {
                 document.querySelectorAll('.card .card-date-display').forEach(dateElement => {
                     dateElement.textContent = dateElement.textContent.toLowerCase();
@@ -172,22 +188,25 @@
             }
 
             function showPostsGrid() {
-                postsGrid.style.display = 'block';
+                postsGrid.style.display = 'grid'; // Changed to 'grid' for masonry
                 tagFiltersDiv.style.display = 'block';
                 document.getElementById('mainTitle').style.display = 'block';
                 postDetailView.style.display = 'none';
+                postOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling on body
             }
-/*
-            function showPostDetail(card) {
+
+            function showPostDetail(cardElement) {
                 postsGrid.style.display = 'none';
                 tagFiltersDiv.style.display = 'none';
                 document.getElementById('mainTitle').style.display = 'none';
+                document.body.style.overflow = 'hidden'; // Disable scrolling on body
 
-                detailTitle.textContent = card.dataset.title;
-                detailContent.innerHTML = card.dataset.content;
-                
+                detailTitle.textContent = cardElement.dataset.title;
+                detailContent.innerHTML = cardElement.dataset.content; // Use innerHTML to render HTML content
+
                 detailTags.innerHTML = '';
-                const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+                const tags = cardElement.dataset.tags ? cardElement.dataset.tags.split(',') : [];
                 tags.forEach(tag => {
                     const tagSpan = document.createElement('span');
                     tagSpan.classList.add('tag-button', '!cursor-default');
@@ -196,16 +215,17 @@
                     detailTags.appendChild(tagSpan);
                 });
 
-                detailDate.textContent = card.dataset.date.toLowerCase();
-                postDetailView.style.display = 'flex';
-                window.scrollTo(0, 0);
+                detailDate.textContent = cardElement.dataset.date.toLowerCase();
+                postDetailView.style.display = 'flex'; // Use flex for centering content if needed
+                postOverlay.style.display = 'block'; // Show the overlay
+                window.scrollTo(0, 0); // Scroll to top when detail view opens
             }
-*/
+
             function applyFilter(selectedTag) {
                 allPostCards.forEach(card => {
                     const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
                     if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
-                        card.style.display = 'flex';
+                        card.style.display = 'flex'; // Keep flex for cards
                     } else {
                         card.style.display = 'none';
                     }
@@ -233,21 +253,29 @@
                     applyFilter(selectedTag);
                 });
             });
-/*
-            postsGrid.querySelectorAll('.card').forEach(card => {
-                card.addEventListener('click', () => {
-                    showPostDetail(card);
+
+            // Event listener for "See more" links
+            document.querySelectorAll('.see-more-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const postId = event.target.dataset.postId;
+                    const cardElement = document.getElementById(postId);
+                    if (cardElement) {
+                        showPostDetail(cardElement);
+                    }
                 });
             });
 
-            backToPostsButton.addEventListener('click', () => {
+            // Event listener for closing the detail view
+            closeDetailViewButton.addEventListener('click', () => {
                 showPostsGrid();
                 const allButton = tagFiltersDiv.querySelector('[data-tag="all"]');
                 if (allButton) {
-                    allButton.click();
+                    allButton.click(); // Reapply "All" filter after closing
                 }
             });
-*/
+
+            // Handle initial filter from URL
             const urlParams = new URLSearchParams(window.location.search);
             const initialTag = urlParams.get('tag');
 
@@ -260,7 +288,7 @@
             } else {
                 tagFiltersDiv.querySelector('[data-tag="all"]').click();
             }
-            showPostsGrid();
+            showPostsGrid(); // Ensure grid is shown on initial load
 
             lowerCaseCardDates();
         });
