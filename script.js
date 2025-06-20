@@ -210,7 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyFilter(selectedTag) {
         allPostCards.forEach(card => {
             const cardTags = card.dataset.tags ? card.dataset.tags.split(',') : [];
-            if (selectedTag === 'main' || cardTags.includes(selectedTag)) {
+            if (selectedTag === 'main') {
+                if (cardTags.includes('update') || cardTags.includes('projects')) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            } else if (cardTags.includes(selectedTag)) {
                 card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
