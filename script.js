@@ -20,13 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let filterBeforeDetail = 'main';
 
     const postsData = [
-        {
-            id: 'post-intro',
-            title: 'intro',
-            fullContent: `<p class='text-gray-300 text-sm'>I'm Sampada, a rising sophomore at MIT studying Mechanical Engineering with a concentration in robotics (2A-6) and minoring in Design (4B). <br></p><img src='me.png' alt='sampada nepal' class='w-full mt-4 rounded-lg shadow-lg'> <br><p class='text-gray-300 text-sm'>This summer, I'll be in San Francisco working on a personal robotics project. If that sounds interesting or if you'd like to meet, reach out to me at sampada@mit.edu</p>`,
-            date: 'may 30, 2025',
-            tags: []
-        },
+
         {
             id: 'post-poartable',
             title: 'poartable',
@@ -125,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generatePostCards() {
         postsGrid.innerHTML = '';
-        postsData.forEach(post => {
+        postsData.forEach((post) => {
             const card = document.createElement('div');
             card.classList.add('card');
             card.id = post.id;
@@ -208,6 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setMainVisibility('none', 'blur(3px) brightness(0.5)', 'none');
         document.body.style.overflow = 'hidden';
 
+        // Remove highlight from all cards and reset to default color
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.backgroundColor = '#1e293b';
+        });
+        // Set the clicked card to blue (redundant but ensures color)
+        cardElement.style.backgroundColor = '#1e293b';
+        cardElement.classList.add('active-detail');
+
         detailTitle.textContent = cardElement.dataset.title;
         detailContent.innerHTML = cardElement.dataset.fullContent;
 
@@ -252,11 +254,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
             button.classList.add('active');
             applyFilter(selectedTag);
+
+            // Hide or show the header trio and posts section title based on tag
+            const trio = document.querySelector('.trio-cards-container');
+            const postsTitle = document.querySelector('.posts-section-title');
+            if (trio) {
+                if (selectedTag === 'main') {
+                    trio.style.display = '';
+                    if (postsTitle) postsTitle.style.display = '';
+                } else {
+                    trio.style.display = 'none';
+                    if (postsTitle) postsTitle.style.display = 'none';
+                }
+            }
         });
     });
 
+    // Close detail view when clicking the overlay (not the card)
+    postOverlay.addEventListener('click', function(e) {
+        if (e.target === postOverlay) {
+            showPostsGrid();
+            document.body.style.overflow = 'auto';
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.backgroundColor = '#1e293b';
+                card.classList.remove('active-detail');
+            });
+            const lastButton = tagFiltersDiv.querySelector(`[data-tag="${filterBeforeDetail}"]`);
+            if (lastButton) {
+                lastButton.click();
+            }
+        }
+    });
+
+    // Also remove highlight when closing with the close button
     closeDetailViewButton.addEventListener('click', () => {
         showPostsGrid();
+        document.body.style.overflow = 'auto';
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.backgroundColor = '#1e293b';
+            card.classList.remove('active-detail');
+        });
         const lastButton = tagFiltersDiv.querySelector(`[data-tag="${filterBeforeDetail}"]`);
         if (lastButton) {
             lastButton.click();

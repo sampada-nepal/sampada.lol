@@ -94,7 +94,7 @@ a:visited {
 }
 
 .card {
-    background-color: #1a1a1a;
+    background-color: #1e293b;
     border: 2px solid transparent;
     border-radius: 0.5rem;
     padding: 1.5rem;
@@ -165,16 +165,15 @@ a:visited {
     margin-right: 0.5rem;
 }
 
-.card h2 {
-    font-family: 'DotGothic16', monospace;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
+.card h2, .card h3 {
+    font-family: 'EB Garamond', serif;
 }
 
 #mainTitle {
     font-family: 'DotGothic16', monospace;
     font-size: 3rem;
     letter-spacing: 0.1em;
+    text-align: center;
 }
 
 #detailTitle {
@@ -194,7 +193,7 @@ a:visited {
         column-count: 2;
     }
     #mainTitle {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     #detailTitle {
         font-size: 2rem;
@@ -235,10 +234,12 @@ a:visited {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #1a1a1a;
-    border: 2px solid white;
-    border-radius: 0.5rem;
-    padding: 2rem;
+    background-color: #1e293b;
+    border: none;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 1.5rem;
+    padding: 2rem 2rem;
     max-width: 700px;
     width: 90%;
     max-height: 90vh;
@@ -299,4 +300,50 @@ a:visited {
 .back-button-text:hover {
     color: white;
     text-decoration: underline;
+}
+
+.trio-cards-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 100%;
+}
+
+.posts-section-title {
+    max-width: 1200px;
+    margin: 3rem auto 1rem auto;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: white;
+    font-family: 'DotGothic16', monospace;
+    letter-spacing: 0.1em;
+}
+
+/* Center the intro trio card text vertically */
+.trio-cards-container .md\:w-2\/3 > .flex {
+    align-items: center;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+  .post-detail-view {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .post-detail-view {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
