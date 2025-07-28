@@ -13,87 +13,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allPostCards = [];
 
-    const numberOfStars = 100;
-    const starSize = 2;
+    const numberOfParticles = 60; // Paper dust particles instead of stars
+    const particleSize = 2;
 
     let lastSelectedTag = 'main';
     let filterBeforeDetail = 'main';
 
     const postsData = [
-
         {
             id: 'post-poartable',
             title: 'poartable',
-            fullContent: `<p class='text-gray-300 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team. check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <p class='text-gray-300 text-sm'> <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'></p>`,
+            fullContent: `<p class='text-gray-700 text-sm'>created an accessible oar-carrying device for pararowers and the MIT rowing team. check out the project <a href='https://poartable200.cargo.site/'>website</a>! <img src='poartable.png' alt='oar-carrying device' class='w-full mt-4 rounded-lg shadow-lg'> <p class='text-gray-700 text-sm'> <img src='poarcads.png' alt='cad models of oar carrier product' class='w-full mt-4 rounded-lg shadow-lg'></p>`,
             date: 'may 22, 2025',
             tags: ['mech-e']
         },
         {
             id: 'post-loading',
             title: 'loading...',
-            fullContent: `<p class='text-gray-300 text-sm'>launch screen I made for a game</p><img src='pixilart-drawing.gif' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            fullContent: `<p class='text-gray-700 text-sm'>launch screen I made for a game</p><img src='pixilart-drawing.gif' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 10, 2022',
             tags: ['CS']
         },
         {
             id: 'post-webdev',
             title: 'web dev',
-            fullContent: `<p class='text-gray-300 text-sm'>i made everything on this website!</p><img src='webdevlol.png' alt='screenshot of website cover' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            fullContent: `<p class='text-gray-700 text-sm'>i made everything on this website!</p><img src='webdevlol.png' alt='screenshot of website cover' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 20, 2025',
             tags: ['CS']
         },
         {
             id: 'post-maslab',
             title: 'rack-and-pinion',
-            fullContent: `<p class='text-gray-300 text-sm'>this was mounted to a DC motor for an autonomous robot to pick up multicolored blocks.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'></p>`,
+            fullContent: `<p class='text-gray-700 text-sm'>this was mounted to a DC motor for an autonomous robot to pick up multicolored blocks.<br></p><img src='maslabpinion.gif' alt='rack and pinion design' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-700 text-sm'></p>`,
             date: 'jan 30, 2025',
             tags: ['mech-e']
         },
         {
             id: 'post-beerbot',
             title: 'beerbot in process',
-            fullContent: `<p class='text-gray-300 text-sm'>a cad model (in Fusion) for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            fullContent: `<p class='text-gray-700 text-sm'>a cad model (in Fusion) for a project coming up..</p><img src='beerbotcad.gif' alt='cad of a robot' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'june 10, 2022',
             tags: ['mech-e']
         },
         {
             id: 'post-game-dev',
             title: 'game dev',
-            fullContent: `<p class='text-gray-300 text-sm'>I've done a few start-to-finish pixel games in Unity. Through these projects I've produced a lot of tilemaps, backgrounds, and programming in C#. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'></p>`,
+            fullContent: `<p class='text-gray-700 text-sm'>I've done a few start-to-finish pixel games in Unity. Through these projects I've produced a lot of tilemaps, backgrounds, and programming in C#. <br></p><img src='ghost game.png' alt='pixel gif' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-700 text-sm'></p>`,
             date: 'September 16, 2021',
             tags: ['CS']
         },
         {
             id: 'post-mulberry-lamp',
             title: 'mulberry lamp',
-            fullContent: `<p class='text-gray-300 text-sm'>a weekend project gift for my dad :)</p><img src='raspilamp.png' alt='stained glass lamp' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
+            fullContent: `<p class='text-gray-700 text-sm'>a weekend project gift for my dad :)</p><img src='raspilamp.png' alt='stained glass lamp' class='w-full mt-4 rounded-lg shadow-lg'><br>`,
             date: 'April 23, 2025',
             tags: ['personal']
         },
         {
             id: 'post-hackathon',
             title: "baby's first hackathon",
-            fullContent: `<p class='text-gray-300 text-sm'>I competed in my first <a href='https://github.com/samyok/cine.stream'>hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p><img src='cinestream.png' alt='pixel graphic' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-300 text-sm'>winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>`,
+            fullContent: `<p class='text-gray-700 text-sm'>I competed in my first <a href='https://github.com/samyok/cine.stream'>hackathon</a> in 2021 with my brother! we made an online 3D movie-watching arena made entirely from CSS. <br></p><img src='cinestream.png' alt='pixel graphic' class='w-full mt-4 rounded-lg shadow-lg'><br><p class='text-gray-700 text-sm'>winning this hackathon was very inspiring and exciting for me and led to a lot of other random projects I did that year. </p>`,
             date: 'april 16, 2021',
             tags: ['CS']
         }
     ];
 
-    function createStar(size, duration, delay) {
-        const star = document.createElement('span');
-        star.classList.add('star');
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.left = `${Math.random() * 100}vw`;
-        star.style.top = `${Math.random() * 100}vh`;
-        star.style.animationDuration = `${duration}s`;
-        star.style.animationDelay = `${delay}s`;
-        return star;
+    function createPaperParticle(size, duration, delay) {
+        const particle = document.createElement('span');
+        particle.classList.add('star'); // Reusing the star class but with different styling
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        return particle;
     }
 
-    function initStars(count, size) {
+    function initPaperParticles(count, size) {
         for (let i = 0; i < count; i++) {
-            starContainer.appendChild(createStar(size, Math.random() * 2 + 1, Math.random() * 2));
+            starContainer.appendChild(createPaperParticle(size + Math.random(), Math.random() * 6 + 4, Math.random() * 4));
         }
     }
 
@@ -119,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generatePostCards() {
         postsGrid.innerHTML = '';
-        postsData.forEach((post) => {
+        postsData.forEach((post, index) => {
             const card = document.createElement('div');
             card.classList.add('card');
             card.id = post.id;
@@ -132,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = post.fullContent;
-            const paragraphElement = tempDiv.querySelector('p.text-gray-300');
+            const paragraphElement = tempDiv.querySelector('p');
             const paragraphText = paragraphElement ? paragraphElement.textContent : '';
             const truncatedText = truncateText(paragraphText, 150);
 
@@ -144,14 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <div class="card-content">
                     <h2 class="text-2xl font-bold mb-2">${post.title}</h2>
-                    <p class="text-gray-300 text-sm">${truncatedText}</p>
+                    <p class="text-sm">${truncatedText}</p>
                     ${imageHtml}
                 </div>
                 <div class="mt-4 flex justify-between items-center">
                     <div class="flex flex-wrap gap-1">
                         ${tagSpansHtml}
                     </div>
-                    <p class="text-xs text-gray-500 card-date-display">${post.date}</p>
+                    <p class="text-xs card-date-display">${post.date}</p>
                 </div>
             `;
             postsGrid.appendChild(card);
@@ -199,15 +198,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showPostDetail(cardElement) {
         filterBeforeDetail = lastSelectedTag;
-        setMainVisibility('none', 'blur(3px) brightness(0.5)', 'none');
+        setMainVisibility('none', 'blur(2px) brightness(0.7)', 'none');
         document.body.style.overflow = 'hidden';
 
         // Remove highlight from all cards and reset to default color
         document.querySelectorAll('.card').forEach(card => {
-            card.style.backgroundColor = '#1e293b';
+            card.style.backgroundColor = '#faf7f0';
+            card.style.borderColor = '#d4c4a0';
         });
-        // Set the clicked card to blue (redundant but ensures color)
-        cardElement.style.backgroundColor = '#1e293b';
+        // Highlight the clicked card
+        cardElement.style.backgroundColor = '#f5f1e8';
+        cardElement.style.borderColor = '#b8a88a';
         cardElement.classList.add('active-detail');
 
         detailTitle.textContent = cardElement.dataset.title;
@@ -270,13 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close detail view when clicking the overlay (not the card)
+    // Close detail view when clicking the overlay
     postOverlay.addEventListener('click', function(e) {
         if (e.target === postOverlay) {
             showPostsGrid();
             document.body.style.overflow = 'auto';
             document.querySelectorAll('.card').forEach(card => {
-                card.style.backgroundColor = '#1e293b';
+                card.style.backgroundColor = '#faf7f0';
+                card.style.borderColor = '#d4c4a0';
                 card.classList.remove('active-detail');
             });
             const lastButton = tagFiltersDiv.querySelector(`[data-tag="${filterBeforeDetail}"]`);
@@ -286,12 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Also remove highlight when closing with the close button
+    // Close detail view with close button
     closeDetailViewButton.addEventListener('click', () => {
         showPostsGrid();
         document.body.style.overflow = 'auto';
         document.querySelectorAll('.card').forEach(card => {
-            card.style.backgroundColor = '#1e293b';
+            card.style.backgroundColor = '#faf7f0';
+            card.style.borderColor = '#d4c4a0';
             card.classList.remove('active-detail');
         });
         const lastButton = tagFiltersDiv.querySelector(`[data-tag="${filterBeforeDetail}"]`);
@@ -307,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tagFiltersDiv.querySelector(`.tag-button[data-tag="${initialTag}"]`) :
         tagFiltersDiv.querySelector('[data-tag="main"]');
 
-    initStars(numberOfStars, starSize);
+    initPaperParticles(numberOfParticles, particleSize);
     generatePostCards();
 
     if (initialFilterButton) {
