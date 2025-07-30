@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
@@ -13,7 +14,7 @@
     <div id="star-container" class="star-container"></div>
     <div id="postOverlay" class="post-detail-overlay"></div>
     <div class="flex flex-col items-center mb-8">
-        <h1 id="mainTitle" class="text-4xl font-extrabold mb-2">sampada creates</h1>
+        <h1 id="mainTitle" class="text-4xl font-extrabold mb-2" style="font-family: 'DotGothic16', monospace;">sampada creates</h1>
         <div id="tagFilters" class="flex flex-wrap gap-2 justify-center mb-4">
             <span class="tag-button active" data-tag="main">all</span>
             <span class="tag-button" data-tag="mech-e">mech-e</span>
@@ -26,7 +27,7 @@
       <!-- Personal Card (2/3 width on desktop) -->
       <div class="md:w-2/3 w-full bg-gray-900 rounded-xl shadow-lg p-8 flex flex-col justify-center">
         <div class="flex flex-col md:flex-row items-center md:items-start gap-6 w-full">
-          <img src="me.png" alt="Sampada Nepal" class="w-40 h-40 md:w-56 md:h-56 rounded-full shadow-md object-cover mb-4 md:mb-0 border-4 border-solid" style="border-color: #d4c4a0; box-shadow: 4px 4px 0px #d4c4a0, 8px 8px 16px rgba(139, 115, 85, 0.2);">
+          <img src="me.png" alt="Sampada Nepal" class="w-40 h-40 md:w-56 md:h-56 rounded-full shadow-md object-cover mb-4 md:mb-0">
           <div class="flex-1 flex flex-col justify-center md:ml-4">
             <h2 class="text-2xl md:text-3xl font-bold mb-2">hi, i'm Sampada</h2>
             <p class="text-gray-400 text-base mb-2">
@@ -58,10 +59,10 @@
 
     <div id="postDetailView" class="post-detail-view">
         <button class="close-button" id="closeDetailView">&times;</button>
-        <h2 id="detailTitle" class="text-3xl font-bold mb-4"></h2>
-        <div id="detailContent" class="mb-4"></div>
+        <h2 id="detailTitle" class="text-3xl font-bold mb-4 text-white"></h2>
+        <div id="detailContent" class="text-gray-300 mb-4"></div>
         <div class="flex flex-wrap gap-2 mb-4" id="detailTags"></div>
-        <p id="detailDate" class="text-xs"></p>
+        <p id="detailDate" class="text-xs text-gray-500"></p>
     </div>
 </body>
 </html>
