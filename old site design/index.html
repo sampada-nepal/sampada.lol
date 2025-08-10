@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sampada.lol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <link rel="stylesheet" href="style.css">
+
+    <meta property="og:title" content="sampada.lol">
+    <meta property="og:description" content="sampada's latest updates, projects, and creative endeavors.">
+    <meta property="og:image" content="sampadacreates.png">
+    <meta property="og:url" content="https://sampada.lol/posts.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="sampada.lol">
+    <meta name="twitter:title" content="sampada.lol">
+    <meta name="twitter:description" content="Discover Sampada's latest updates, robotics projects, and creative endeavors.">
+    <meta name="twitter:image" content="sampadacreates.png">
+    <meta name="twitter:creator" content="@sampadanepal">
+</head>
+<body class="bg-black flex items-center justify-center min-h-screen p-4">
+    <div id="star-container" class="star-container"></div>
+
+    <div class="text-white text-center z-0">
+        <div class="flex flex-col md:flex-row items-center justify-center mx-auto max-w-lg">
+            <div>
+                <h1 class="text-4xl font-extrabold mb-4">hi, i'm Sampada</h1>
+                <p class="text-xl mb-6">here I share my projects, visions, thoughts, and more.</p>
+                <button id="enterSiteButton">explore</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        let firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        if (!firebaseConfig.projectId) {
+            firebaseConfig = {
+                ...firebaseConfig,
+                apiKey: firebaseConfig.apiKey || "YOUR_API_KEY",
+                authDomain: firebaseConfig.authDomain || "YOUR_AUTH_DOMAIN",
+                projectId: "your-default-project-id",
+                storageBucket: firebaseConfig.storageBucket || "YOUR_STORAGE_BUCKET",
+                messagingSenderId: firebaseConfig.messagingSenderId || "YOUR_MESSAGING_SENDER_ID",
+                appId: firebaseConfig.appId || "YOUR_APP_ID"
+            };
+        }
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        let userId = null;
+        let isAuthReady = false;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                userId = user.uid;
+            } else {
+                try {
+                    await signInAnonymously(auth);
+                    userId = auth.currentUser.uid;
+                } catch (error) {
+                    console.error("Error signing in anonymously:", error);
+                }
+            }
+            isAuthReady = true;
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const starContainer = document.getElementById('star-container');
+            const numberOfStars = 150;
+            const starSize = 3;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('span');
+                star.classList.add('star');
+                star.style.width = `${starSize}px`;
+                star.style.height = `${starSize}px`;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                star.style.left = `${x}vw`;
+                star.style.top = `${y}vh`;
+                const duration = Math.random() * 2 + 1;
+                const delay = Math.random() * 2;
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `${delay}s`;
+                starContainer.appendChild(star);
+            }
+
+            // New: Event listener for the 'explore' button
+            const enterButton = document.getElementById('enterSiteButton');
+            if (enterButton) {
+                enterButton.addEventListener('click', () => {
+                    window.location.href = 'posts.html'; // Navigates to posts.html (defaults to 'all' filter)
+                });
+            }
+        });
+    </script>
+</body>
+</html>
